@@ -32,7 +32,7 @@ After you have those CLI tools, please open Cursor *into Windows*.
 Then, you can clone the repository using the following command in your Cursor terminal:
 
 ```bash
-git clone https://AI-Maker-Space/AIE7-MCP-Session.git
+git clone https://AI-Maker-Space/AIE8-MCP-Session.git
 ```
 
 After that, you can follow from Step 2. below!
