@@ -46,10 +46,14 @@ After that, you can follow from Step 2. below!
    ```
 
 2. **Configure environment variables**:
-Copy the `.env.sample` to `.env` and add your Tavily API key:
+Create a `.env` file and add your API keys:
    ```
-   TAVILY_API_KEY=your_api_key_here
+   TAVILY_API_KEY=your_tavily_api_key_here
+   NEWS_API_KEY=your_news_api_key_here
    ```
+   
+   - Get your Tavily API key at: https://tavily.com/
+   - Get your free NewsAPI key at: https://newsapi.org/register
 
 3. 🏗️ **Add a new tool to your MCP Server** 🏗️
 
@@ -76,7 +80,21 @@ The server will start and listen for commands via standard input/output.
 
 ## Usage
 
-The server provides a `web_search` tool that can be used to search the web for information about a given query. This is achieved by calling the `web_search` function with the desired query string.
+The server provides several tools for different functionalities:
+
+### Available Tools:
+
+1. **`web_search(query: str)`** - Search the web for information about a given query using Tavily API
+2. **`roll_dice(notation: str, num_rolls: int)`** - Roll dice with custom notation (e.g., "2d6", "1d20")
+3. **`get_marketing_news(company: str, category: str, num_articles: int)`** - Get latest marketing and business news from companies like ZoomInfo, 6sense, HubSpot, etc.
+4. **`get_company_news(company: str, num_articles: int)`** - Get specific news about a particular company
+
+### Example Usage:
+
+- `get_marketing_news()` - Get general marketing tech news
+- `get_marketing_news(company="ZoomInfo")` - Get ZoomInfo-specific news
+- `get_company_news(company="6sense")` - Get 6sense company news
+- `roll_dice("2d6", 3)` - Roll 2 six-sided dice 3 times
 
 ## Activities: 
 
@@ -90,4 +108,10 @@ Choose an API that you enjoy using - and build an MCP server for it!
 
 Build a simple LangGraph application that interacts with your MCP Server.
 
-You can find details [here](https://github.com/langchain-ai/langchain-mcp-adapters)!
+**Files for Activity #2:**
+- `langgraph_app.py` - LangGraph application with MCP integration
+
+**To test Activity #2:**
+```bash
+uv run langgraph_app.py
+```
